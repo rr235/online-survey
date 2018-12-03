@@ -5,7 +5,7 @@ class RadioButtons extends Component {
     return this.props.options.map((option, index) => {
       const id = `${this.props.name}-${index}`;
       return (
-        <span>
+        <span key={id}>
           <input
             type="radio"
             name={this.props.name}

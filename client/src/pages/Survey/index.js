@@ -10,16 +10,19 @@ class Survey extends Component {
   }
 
   renderQuestions() {
-    return this.props.survey.questions.map((question, index) => (
-      <QuestionAnswer
-        key={index}
-        text={question.text}
-        id={question.id}
-        name={question.id}
-        type={question.type}
-        options={question.options ? question.options : []}
-      />
-    ));
+    const active = this.props.survey.active;
+    return this.props.survey.questions
+      .filter(question => question.id === active)
+      .map((question, index) => (
+        <QuestionAnswer
+          key={index}
+          text={question.text}
+          id={question.id}
+          name={question.id}
+          type={question.type}
+          options={question.options ? question.options : []}
+        />
+      ));
   }
 
   render() {

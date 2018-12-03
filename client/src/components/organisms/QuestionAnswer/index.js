@@ -21,7 +21,7 @@ class QuestionAnswer extends Component {
     return (
       <div>
         <label htmlFor={this.props.id}>{this.props.text}</label>
-        {this.getInputType()}
+        <div>{this.getInputType()}</div>
       </div>
     );
   }
