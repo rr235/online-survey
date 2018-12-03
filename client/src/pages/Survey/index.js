@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProgressBar from '../../components/atoms/ProgressBar';
 import QuestionAnswer from '../../components/organisms/QuestionAnswer';
+import Button from '../../components/atoms/Button';
 import { fetchQuestions } from '../../actions';
 
 class Survey extends Component {
@@ -30,6 +31,7 @@ class Survey extends Component {
       <div>
         <ProgressBar />
         {this.renderQuestions()}
+        <Button text="next" className="primary" />
       </div>
     );
   }
