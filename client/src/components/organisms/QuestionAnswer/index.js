@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Text from '../../atoms/Text';
 import Dropdown from '../../atoms/Dropdown';
+import RadioButtons from '../../atoms/RadioButtons';
 
 class QuestionAnswer extends Component {
   getInputType() {
@@ -9,6 +10,8 @@ class QuestionAnswer extends Component {
         return <Text {...this.props} />;
       case 'select':
         return <Dropdown {...this.props} />;
+      case 'radio':
+        return <RadioButtons {...this.props} />;
       default:
         return null;
     }
