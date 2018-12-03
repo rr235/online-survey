@@ -1,0 +1,25 @@
+.nav {
+  display: flex;
+  width: 100%;
+}
+
+.navContent {
+  flex: 1;
+  flex-direction: column;
+}
+
+.link {
+  display: flex;
+}
+
+.linkLeft {
+  justify-content: flex-start;
+}
+
+.linkCenter {
+  justify-content: center;
+}
+
+.linkRight {
+  justify-content: flex-end;
+}

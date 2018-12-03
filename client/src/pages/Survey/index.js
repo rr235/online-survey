@@ -5,6 +5,7 @@ import QuestionAnswer from '../../components/organisms/QuestionAnswer';
 import Button from '../../components/atoms/Button';
 import { Link } from 'react-router-dom';
 import { fetchQuestions, nextQuestion, saveAnswer } from '../../actions';
+import style from './style.scss';
 
 class Survey extends Component {
   constructor(props) {
@@ -69,11 +70,25 @@ class Survey extends Component {
     return (
       <div>
         {this.renderQuestions()}
-        {this.renderButton(this.props.survey.prevQuestion, 'previous')}
-        {this.renderButton(this.props.survey.nextQuestion, 'next')}
-        <Link to="/summary">
-          <Button text="Summary" className="primary" />
-        </Link>
+        <div className={style.nav}>
+          <div className={style.navContent}>
+            <div className={[style.link, style.linkLeft].join(' ')}>
+              {this.renderButton(this.props.survey.prevQuestion, 'previous')}
+            </div>
+          </div>
+          <div className={style.navContent}>
+            <div className={[style.link, style.linkCenter].join(' ')}>
+              <Link to="/summary">
+                <Button text="Summary" className="primary" />
+              </Link>
+            </div>
+          </div>
+          <div className={style.navContent}>
+            <div className={[style.link, style.linkRight].join(' ')}>
+              {this.renderButton(this.props.survey.nextQuestion, 'next')}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

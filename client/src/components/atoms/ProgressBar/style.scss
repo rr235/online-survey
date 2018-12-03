@@ -1,11 +1,26 @@
 .bar {
   width: 100%;
   height: 1.5rem;
-  background: gray;
+  background: #2e4052;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .progress {
-  background: blue;
+  background: #0092d0;
   height: inherit;
   color: white;
+}
+
+.text {
+  display: block;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import Survey from './pages/Survey';
 import Summary from './pages/Summary';
+import './App.style.scss';
 
 class App extends Component {
   render() {

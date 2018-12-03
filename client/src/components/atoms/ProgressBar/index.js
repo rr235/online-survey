@@ -11,7 +11,7 @@ class ProgressBar extends Component {
     return (
       <div className={styles.bar}>
         <div className={styles.progress} style={{ width: progress }}>
-          {progress}
+          <span className={styles.text}>{progress}</span>
         </div>
       </div>
     );
