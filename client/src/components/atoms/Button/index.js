@@ -19,7 +19,7 @@ class Button extends Component {
   }
 
   onClickHandler(e) {
-    this.props.onClick(e);
+    this.props.onClick && this.props.onClick(e);
   }
 
   render() {

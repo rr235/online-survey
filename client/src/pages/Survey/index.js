@@ -71,6 +71,9 @@ class Survey extends Component {
         {this.renderQuestions()}
         {this.renderButton(this.props.survey.prevQuestion, 'previous')}
         {this.renderButton(this.props.survey.nextQuestion, 'next')}
+        <Link to="/summary">
+          <Button text="Summary" className="primary" />
+        </Link>
       </div>
     );
   }
