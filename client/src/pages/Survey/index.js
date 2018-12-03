@@ -11,7 +11,7 @@ class Survey extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchQuestions();
+    this.props.fetchQuestions(this.props.match.params.id);
   }
 
   renderQuestions() {
