@@ -8,7 +8,12 @@ class App extends Component {
       <div>
         <h1>Online Survey</h1>
         <ProgressBar />
-        <QuestionAnswer />
+        <QuestionAnswer
+          text="How old are you?"
+          id="age"
+          name="age"
+          type="text"
+        />
       </div>
     );
   }
