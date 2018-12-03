@@ -4,14 +4,14 @@
   "questions": [
     {
       "id": "q1",
-      "text": "How old are you?",
+      "text": "This is a textbox question.",
       "type": "text",
       "nextQuestion": "q2"
     },
     {
       "id": "q2",
-      "text": "How old are you?",
-      "type": "text",
+      "text": "This is a dropdown question",
+      "type": "select",
       "options": [
         { "value": "opt1", "text": "Option 1" },
         { "value": "opt2", "text": "Option 2" },
