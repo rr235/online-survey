@@ -17,7 +17,8 @@ module.exports = merge(common, {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -29,6 +30,7 @@ module.exports = merge(common, {
   },
   devtool: 'cheap-module-source-map',
   devServer: {
+    historyApiFallback: true,
     proxy: {
       '/api/**': {
         target: 'http://localhost:5000'
