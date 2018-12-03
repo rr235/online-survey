@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ProgressBar from '../../components/atoms/ProgressBar';
 import QuestionAnswer from '../../components/organisms/QuestionAnswer';
 import Button from '../../components/atoms/Button';
+import { Link } from 'react-router-dom';
 import { fetchQuestions, nextQuestion, saveAnswer } from '../../actions';
 
 class Survey extends Component {
@@ -47,11 +48,13 @@ class Survey extends Component {
 
   renderButton(prop, text) {
     return prop ? (
-      <Button
-        text={text}
-        className="primary"
-        onClick={() => this.questionChangeHandler(prop)}
-      />
+      <Link to={`/survey/${prop}`}>
+        <Button
+          text={text}
+          className="primary"
+          onClick={() => this.questionChangeHandler(prop)}
+        />
+      </Link>
     ) : null;
   }
 
