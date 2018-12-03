@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_QUESTIONS, NEXT_QUESTION } from './types';
+import { FETCH_QUESTIONS, NEXT_QUESTION, SAVE_ANSWER } from './types';
 
 export const fetchQuestions = activeId => dispatch => {
   axios.get('/api/questions').then(res => {
@@ -13,4 +13,8 @@ export const fetchQuestions = activeId => dispatch => {
 
 export const nextQuestion = next => dispatch => {
   dispatch({ type: NEXT_QUESTION, payload: next });
+};
+
+export const saveAnswer = val => dispatch => {
+  dispatch({ type: SAVE_ANSWER, payload: val });
 };
