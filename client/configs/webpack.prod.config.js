@@ -15,6 +15,7 @@ const cssModuleLoader = {
 };
 
 module.exports = merge(common, {
+  mode: 'production',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[chunkhash].js'
