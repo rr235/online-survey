@@ -12,10 +12,21 @@
       "id": "q2",
       "text": "This is a dropdown question",
       "type": "select",
+      "nextQuestion": "q3",
       "options": [
         { "value": "opt1", "text": "Option 1" },
         { "value": "opt2", "text": "Option 2" },
         { "value": "opt3", "text": "Option 3" }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "This is a dropdown question",
+      "type": "radio",
+      "options": [
+        { "value": "rad1", "text": "Radio 1" },
+        { "value": "rad2", "text": "Radio 2" },
+        { "value": "rad3", "text": "Radio 3" }
       ]
     }
   ]
