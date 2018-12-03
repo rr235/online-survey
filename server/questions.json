@@ -1,6 +1,8 @@
 {
-  "total": 2,
+  "total": 3,
   "active": "q1",
+  "nextQuestion": "q2",
+  "prevQuestion": "",
   "questions": [
     {
       "id": "q1",
@@ -13,6 +15,7 @@
       "text": "This is a dropdown question",
       "type": "select",
       "nextQuestion": "q3",
+      "prevQuestion": "q1",
       "options": [
         { "value": "opt1", "text": "Option 1" },
         { "value": "opt2", "text": "Option 2" },
@@ -21,8 +24,9 @@
     },
     {
       "id": "q3",
-      "text": "This is a dropdown question",
+      "text": "This is a radio button question",
       "type": "radio",
+      "prevQuestion": "q2",
       "options": [
         { "value": "rad1", "text": "Radio 1" },
         { "value": "rad2", "text": "Radio 2" },

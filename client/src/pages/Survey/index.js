@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 import ProgressBar from '../../components/atoms/ProgressBar';
 import QuestionAnswer from '../../components/organisms/QuestionAnswer';
 import Button from '../../components/atoms/Button';
-import { fetchQuestions } from '../../actions';
+import { fetchQuestions, nextQuestion } from '../../actions';
 
 class Survey extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.fetchQuestions();
   }
@@ -26,12 +30,23 @@ class Survey extends Component {
       ));
   }
 
+  renderButton(prop, text) {
+    return prop ? (
+      <Button
+        text={text}
+        className="primary"
+        onClick={() => this.props.nextQuestion(prop)}
+      />
+    ) : null;
+  }
+
   render() {
     return (
       <div>
         <ProgressBar />
         {this.renderQuestions()}
-        <Button text="next" className="primary" />
+        {this.renderButton(this.props.survey.prevQuestion, 'previous')}
+        {this.renderButton(this.props.survey.nextQuestion, 'next')}
       </div>
     );
   }
@@ -43,5 +58,5 @@ function mapStateToProps({ survey }) {
 
 export default connect(
   mapStateToProps,
-  { fetchQuestions }
+  { fetchQuestions, nextQuestion }
 )(Survey);
