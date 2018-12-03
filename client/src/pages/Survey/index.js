@@ -10,7 +10,8 @@ class Survey extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      index: 1
     };
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.questionChangeHandler = this.questionChangeHandler.bind(this);
@@ -30,20 +31,26 @@ class Survey extends Component {
 
   renderQuestions() {
     const active = this.props.survey.active;
-    return this.props.survey.questions
-      .filter(question => question.id === active)
-      .map((question, index) => (
-        <QuestionAnswer
-          key={index}
-          text={question.text}
-          id={question.id}
-          name={question.id}
-          type={question.type}
-          options={question.options ? question.options : []}
-          onChange={this.onChangeHandler}
-          value={question.value || ''}
-        />
-      ));
+    return this.props.survey.questions.map((question, index) => {
+      if (question.id === active) {
+        return (
+          <div key={index}>
+            <ProgressBar index={index + 1} total={this.props.survey.total} />
+            <QuestionAnswer
+              text={question.text}
+              id={question.id}
+              name={question.id}
+              type={question.type}
+              options={question.options ? question.options : []}
+              onChange={this.onChangeHandler}
+              value={question.value || ''}
+            />
+          </div>
+        );
+      } else {
+        return null;
+      }
+    });
   }
 
   renderButton(prop, text) {
@@ -61,7 +68,6 @@ class Survey extends Component {
   render() {
     return (
       <div>
-        <ProgressBar />
         {this.renderQuestions()}
         {this.renderButton(this.props.survey.prevQuestion, 'previous')}
         {this.renderButton(this.props.survey.nextQuestion, 'next')}
