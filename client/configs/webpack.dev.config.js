@@ -6,7 +6,7 @@ const cssModuleLoader = {
   loader: 'css-loader',
   options: {
     modules: true,
-    localIdentName: '[name]_[local]',
+    localIdentName: '[name]__[local]__[hash:base64:5]',
     importLoaders: 1,
     sourceMap: true,
     minimize: true

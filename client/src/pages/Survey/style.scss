@@ -1,25 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 2rem);
+  padding: 1rem;
+}
+
+.qa {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .nav {
   display: flex;
   width: 100%;
+  flex-direction: row;
 }
 
 .navContent {
   flex: 1;
-  flex-direction: column;
 }
 
 .link {
   display: flex;
 }
 
-.linkLeft {
+.justifyStart {
   justify-content: flex-start;
 }
 
-.linkCenter {
+.justifyCenter {
   justify-content: center;
 }
 
-.linkRight {
+.justifyEnd {
   justify-content: flex-end;
 }

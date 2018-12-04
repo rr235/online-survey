@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Text from '../../atoms/Text';
 import Dropdown from '../../atoms/Dropdown';
 import RadioButtons from '../../atoms/RadioButtons';
+import style from './style.scss';
 
 class QuestionAnswer extends Component {
   getInputType() {
@@ -19,10 +20,12 @@ class QuestionAnswer extends Component {
 
   render() {
     return (
-      <div>
-        <label htmlFor={this.props.id}>{this.props.text}</label>
-        <div>{this.getInputType()}</div>
-      </div>
+      <>
+        <label htmlFor={this.props.id} className={style.question}>
+          {this.props.text}
+        </label>
+        {this.getInputType()}
+      </>
     );
   }
 }

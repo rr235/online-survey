@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './style.scss';
 
 class Dropdown extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class Dropdown extends Component {
         id={this.props.id}
         onChange={this.onChangeHandler}
         value={this.props.value}
+        className={style.select}
       >
         {this.renderOptions()}
       </select>

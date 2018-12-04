@@ -11,6 +11,7 @@
   background: #0092d0;
   height: inherit;
   color: white;
+  border-right: 1px solid #fff;
 }
 
 .text {
@@ -23,4 +24,5 @@
   right: 0;
   text-align: center;
   z-index: 1;
+  padding-top: 0.25rem;
 }

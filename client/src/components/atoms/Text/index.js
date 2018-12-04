@@ -19,8 +19,6 @@ class Text extends Component {
         name={this.props.name}
         id={this.props.id}
         placeholder={this.props.placeholder || null}
-        cols="30"
-        rows="10"
         value={this.props.value || ''}
         onChange={this.onChangeHandler}
       />

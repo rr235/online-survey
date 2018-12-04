@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import ProgressBar from '../../components/atoms/ProgressBar';
 import QuestionAnswer from '../../components/organisms/QuestionAnswer';
@@ -35,18 +35,22 @@ class Survey extends Component {
     return this.props.survey.questions.map((question, index) => {
       if (question.id === active) {
         return (
-          <div key={index}>
-            <ProgressBar index={index + 1} total={this.props.survey.total} />
-            <QuestionAnswer
-              text={question.text}
-              id={question.id}
-              name={question.id}
-              type={question.type}
-              options={question.options ? question.options : []}
-              onChange={this.onChangeHandler}
-              value={question.value || ''}
-            />
-          </div>
+          <Fragment key={index}>
+            <div className={style.progress}>
+              <ProgressBar index={index + 1} total={this.props.survey.total} />
+            </div>
+            <div className={style.qa}>
+              <QuestionAnswer
+                text={question.text}
+                id={question.id}
+                name={question.id}
+                type={question.type}
+                options={question.options ? question.options : []}
+                onChange={this.onChangeHandler}
+                value={question.value || ''}
+              />
+            </div>
+          </Fragment>
         );
       } else {
         return null;
@@ -68,23 +72,23 @@ class Survey extends Component {
 
   render() {
     return (
-      <div>
+      <div className={style.wrapper}>
         {this.renderQuestions()}
         <div className={style.nav}>
           <div className={style.navContent}>
-            <div className={[style.link, style.linkLeft].join(' ')}>
+            <div className={[style.link, style.justifyStart].join(' ')}>
               {this.renderButton(this.props.survey.prevQuestion, 'previous')}
             </div>
           </div>
           <div className={style.navContent}>
-            <div className={[style.link, style.linkCenter].join(' ')}>
+            <div className={[style.link, style.justifyCenter].join(' ')}>
               <Link to="/summary">
                 <Button text="Summary" className="primary" />
               </Link>
             </div>
           </div>
           <div className={style.navContent}>
-            <div className={[style.link, style.linkRight].join(' ')}>
+            <div className={[style.link, style.justifyEnd].join(' ')}>
               {this.renderButton(this.props.survey.nextQuestion, 'next')}
             </div>
           </div>

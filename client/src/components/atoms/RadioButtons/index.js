@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './style.scss';
 
 class RadioButtons extends Component {
   constructor(props) {
@@ -24,8 +25,11 @@ class RadioButtons extends Component {
             id={id}
             checked={this.props.value === option.value}
             onChange={this.onChangeHandler}
+            className={style.radio}
           />
-          <label htmlFor={id}>{option.text}</label>
+          <label htmlFor={id} className={style.label}>
+            {option.text}
+          </label>
         </span>
       );
     });
