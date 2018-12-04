@@ -19,11 +19,19 @@ class Survey extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchQuestions(this.props.match.params.id);
+    this.props.fetchQuestions(
+      this.props.match.params.id,
+      this.props.cookies.get('questions')
+    );
   }
 
   onChangeHandler(e) {
     this.props.saveAnswer(e.target.value);
+    const {
+      cookies,
+      survey: { questions }
+    } = this.props;
+    cookies.set('questions', questions, { path: '/' });
   }
 
   questionChangeHandler(prop) {
@@ -98,8 +106,8 @@ class Survey extends Component {
   }
 }
 
-function mapStateToProps({ survey }) {
-  return { survey };
+function mapStateToProps({ survey }, { cookies }) {
+  return { survey, cookies };
 }
 
 export default connect(

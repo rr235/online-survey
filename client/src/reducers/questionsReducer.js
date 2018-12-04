@@ -3,7 +3,11 @@ import { FETCH_QUESTIONS, NEXT_QUESTION, SAVE_ANSWER } from '../actions/types';
 export default function(state = { questions: [] }, action) {
   switch (action.type) {
     case FETCH_QUESTIONS:
-      return action.payload;
+      const data = action.payload.data;
+      if (action.payload.cookieQuestions) {
+        data.questions = [...action.payload.cookieQuestions];
+      }
+      return data;
     case NEXT_QUESTION:
       const question = state.questions.find(
         question => question.id === action.payload

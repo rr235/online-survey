@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { FETCH_QUESTIONS, NEXT_QUESTION, SAVE_ANSWER } from './types';
 
-export const fetchQuestions = activeId => dispatch => {
+export const fetchQuestions = (activeId, cookieQuestions) => dispatch => {
   axios.get('/api/questions').then(res => {
     dispatch({
       type: FETCH_QUESTIONS,
-      payload: res.data
+      payload: { data: res.data, cookieQuestions }
     });
     dispatch(nextQuestion(activeId)); // sets the active id
   });

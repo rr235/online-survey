@@ -21,6 +21,7 @@ class Text extends Component {
         placeholder={this.props.placeholder || null}
         value={this.props.value || ''}
         onChange={this.onChangeHandler}
+        onBlur={this.onChangeHandler}
       />
     );
   }
