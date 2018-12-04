@@ -7,7 +7,9 @@ export const fetchQuestions = (activeId, cookieQuestions) => dispatch => {
       type: FETCH_QUESTIONS,
       payload: { data: res.data, cookieQuestions }
     });
-    dispatch(nextQuestion(activeId)); // sets the active id
+    if (activeId) {
+      dispatch(nextQuestion(activeId)); // sets the active id
+    }
   });
 };
 
