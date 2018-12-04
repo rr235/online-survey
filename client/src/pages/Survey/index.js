@@ -68,7 +68,7 @@ class Survey extends Component {
 
   renderButton(prop, text) {
     return prop ? (
-      <Link to={`/survey/${prop}`}>
+      <Link to={`/${prop}`}>
         <Button
           text={text}
           className="primary"

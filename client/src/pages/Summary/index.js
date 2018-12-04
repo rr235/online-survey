@@ -13,7 +13,11 @@ class Summary extends Component {
 
   renderQuestionSummary() {
     return this.props.survey.questions.map((question, index) => (
-      <QuestionSummary question={question.text} answer={question.value} />
+      <QuestionSummary
+        question={question.text}
+        answer={question.value}
+        key={index}
+      />
     ));
   }
 
