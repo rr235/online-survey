@@ -5,10 +5,15 @@ import { fetchQuestions } from '../../actions';
 
 class Summary extends Component {
   componentDidMount() {
-    this.props.fetchQuestions(
-      this.props.match.params.id,
-      this.props.cookies.get('questions')
-    );
+    // TODO: fix cookie injection
+    // implement withCookies in page level
+    let id = '';
+    const props = this.props;
+    if (props.match && props.match.params) {
+      id = props.match.params.id;
+    }
+    const cookies = props.cookies ? props.cookies.get('questions') : undefined;
+    this.props.fetchQuestions(id, cookies);
   }
 
   renderQuestionSummary() {
