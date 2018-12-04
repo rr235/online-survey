@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import QuestionSummary from '../../components/atoms/QuestionSummary';
+import QuestionSummary from '../../components/molecules/QuestionSummary';
 import { fetchQuestions } from '../../actions';
 
 class Summary extends Component {
@@ -16,6 +16,7 @@ class Summary extends Component {
       <QuestionSummary
         question={question.text}
         answer={question.value}
+        viewUrl={`/${question.id}`}
         key={index}
       />
     ));
